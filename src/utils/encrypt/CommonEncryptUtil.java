@@ -27,4 +27,22 @@ public class CommonEncryptUtil {
         }
         return stringBuilder.toString();
     }
+
+    public static byte[] hexStringToBytes(String hexString) {
+        int hexlen = hexString.length();
+        byte[] result;
+        if (hexlen % 2 == 1){
+            hexlen++;
+            result = new byte[(hexlen / 2)];
+            hexString = "0"+hexString;
+        }else {
+            result = new byte[(hexlen / 2)];
+        }
+        int j=0;
+        for (int i = 0; i < hexlen; i += 2){
+            result[j] = (byte)Integer.parseInt(hexString.substring(i, i + 2),16);
+            j++;
+        }
+        return result;
+    }
 }

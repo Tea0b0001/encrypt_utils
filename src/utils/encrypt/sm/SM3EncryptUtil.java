@@ -79,7 +79,7 @@ public class SM3EncryptUtil {
      */
     public static String encrypt(byte[] bytes) {
         byte[] result = toBigEndian(bytes);
-        return CommonEncryptUtil.bytesToHexString(result);
+        return new String(result);
     }
 
     /**
@@ -91,7 +91,7 @@ public class SM3EncryptUtil {
      */
     public static String encryptWithKey(byte[] bytes, byte[] key) {
         byte[] result = toBigEndianWithKey(bytes, key);
-        return CommonEncryptUtil.bytesToHexString(result);
+        return new String(result);
     }
 
     /**
